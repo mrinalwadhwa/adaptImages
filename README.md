@@ -3,7 +3,10 @@ Responsive Images
 
 This is an example of how you can support simple responsive images today.
 
+References
+===========
 
+I first implemented this based on [Scott Jehl](http://scottjehl.com/)'s work with the [picture polyfill](http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/), but I later learned that [Mairead Buchan](http://www.headlondon.com/who-we-are#mairead-buchan) had done something similar as well.
 
 
 
@@ -32,4 +35,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-=======
