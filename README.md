@@ -6,7 +6,7 @@ This is an example of how you can support simple responsive images today.
 References
 ===========
 
-I first implemented this based on [Scott Jehl](http://scottjehl.com/)'s work with the [picture polyfill](http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/), but I later learned that [Mairead Buchan](http://www.headlondon.com/who-we-are#mairead-buchan) had done something similar as well.
+I first implemented this based on [Scott Jehl](http://scottjehl.com/)'s work with the [picture polyfill](http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/), but I later learned that [Mairead Buchan](http://www.headlondon.com/who-we-are#mairead-buchan) had done [something similar](http://www.headlondon.com/our-thoughts/technology/posts/creating-responsive-images-using-the-noscript-tag) as well.
 
 
 
