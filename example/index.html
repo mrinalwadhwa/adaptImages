@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!-- this is important for getting correct width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Images</title>
+  <style>img { width: 100%; } </style>
+</head>
+<body>
+
+<noscript data-l="l.jpg" data-s="s.jpg" data-m="m.jpg" data-alt="Blue is large. Red is small">
+  <img src="s.jpg" alt="Blue is large. Red is small" />
+</noscript>
+
+<noscript data-l="l.jpg" data-s="s.jpg" data-m="m.jpg" data-alt="Blue is large. Red is small">
+  <img src="s.jpg" alt="Blue is large. Red is small" />
+</noscript>
+
+<noscript data-l="l.jpg" data-s="s.jpg" data-m="m.jpg" data-alt="Blue is large. Red is small">
+  <img src="s.jpg" alt="Blue is large. Red is small" />
+</noscript>
+
+
+<script src="../adaptImages.js"></script>
+<script>
+
+  // For now using onload, might be better to use domready
+  // but we should be careful since width related properties
+  // can be quite unreliable
+  // tripleodeon.com/2011/12/first-understand-your-screen
+  // In my testing, it seems, document.documentElement.clientWidth can be
+  // used reliably, atleast after onload
+  window.onload = function(){
+    
+    var w = document.documentElement.clientWidth;
+    // you could use whatever logic you wish to select size
+    // could be based on screen size, connection speed, matchMedia etc.
+    adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's');
+  }
+  
+  window.onresize = function(){
+    var w = document.documentElement.clientWidth;
+    adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's');
+  } 
+
+</script>
+</body>
+</html>
