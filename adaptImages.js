@@ -1,11 +1,4 @@
-function adaptImages(
-  // size specifes which version of images to show. 
-  // size must be one of the data- suffixes you've used on noscript tags
-  // to specify image sources, for example if you've used data-large &
-  // data-small, then size should be either 'large' or 'small'
-  size,
-  sizes
-) {
+function adaptImages(size, sizes) {
   var
     _doc = document,
     _getElementsByTagName = 'getElementsByTagName',
