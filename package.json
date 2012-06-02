@@ -1,13 +1,21 @@
 {
     "name": "adaptImages"
-  , "description": ""
-  , "version": "0.0.2"
+  , "description": "A simple function to help implement responsive images."
+  , "version": "0.0.3"
   , "homepage": "https://github.com/mrinalwadhwa/responsive_images"
   , "author": "Mrinal Wadhwa <email@mrinalwadhwa.com> (http://mrinalwadhwa.com)"
   , "keywords": [
         "responsive", "adaptive", "progressive enhancement", "mobile first"
       , "size", "images", "img", "noscript", "picture"
     ]
+  , "scripts": {
+      "test": "node tests/jsdomRunner.js"
+    }
   , "main": "./adaptImages.js"
-  , "devDependencies": { "sink-test": "*", "uglify-js": "*" , "jshint": "*" }
+  , "devDependencies": {
+        "sink-test": "*"
+      , "uglify-js": "*"
+      , "jshint": "*"
+      , "jsdom": "*"
+    }
 }
