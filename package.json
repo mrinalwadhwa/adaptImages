@@ -1,0 +1,13 @@
+{
+    "name": "adaptImages"
+  , "description": ""
+  , "version": "0.0.2"
+  , "homepage": "https://github.com/mrinalwadhwa/responsive_images"
+  , "author": "Mrinal Wadhwa <email@mrinalwadhwa.com> (http://mrinalwadhwa.com)"
+  , "keywords": [
+        "responsive", "adaptive", "progressive enhancement", "mobile first"
+      , "size", "images", "img", "noscript", "picture"
+    ]
+  , "main": "./adaptImages.js"
+  , "devDependencies": { "sink-test": "*", "uglify-js": "*" , "jshint": "*" }
+}
