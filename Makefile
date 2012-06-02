@@ -1,6 +1,6 @@
 NAME=$(shell node -pe "JSON.parse(require('fs').readFileSync('./package.json')).name")
 
-all: node_modules $(NAME).js $(NAME).min.js tests
+all: clean node_modules $(NAME).js $(NAME).min.js tests
 
 $(NAME).js: node_modules
 	node_modules/.bin/jshint src/$(NAME).js
