@@ -3,6 +3,8 @@ adaptImages.js
 
 `adaptImages.js` provides a simple function `adaptImages`, which you can use to support [responsive images](http://unstoppablerobotninja.com/entry/responsive-images/) on your web pages today.
 
+Here's an <a href="http://mrinalwadhwa.github.com/adaptImages">example</a>.
+
 __Note__: This is a stop gap approach until we have a specification and a good [polyfill](http://remysharp.com/2010/10/08/what-is-a-polyfill/) for picture/pic element that the [W3C Responsive Images Community Group](http://www.w3.org/community/respimg/) is working on.
 
 
