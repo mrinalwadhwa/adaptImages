@@ -1,7 +1,7 @@
 {
     "name": "adaptImages"
   , "description": "A simple function to help implement responsive images."
-  , "version": "0.0.3"
+  , "version": "1.0.0"
   , "homepage": "https://github.com/mrinalwadhwa/responsive_images"
   , "author": "Mrinal Wadhwa <email@mrinalwadhwa.com> (http://mrinalwadhwa.com)"
   , "keywords": [
