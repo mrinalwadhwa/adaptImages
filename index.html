@@ -17,7 +17,6 @@
   <div id="content">
     
     <h1>Responsive Images using <a href="https://github.com/mrinalwadhwa/adaptImages">adaptImages.js</a></h1>
-    
     <p>The two images below look the same when seen in a browser with width greater than 640 pixels, but if you resize your browser or if you’re viewing this page on a device with a lesser width, you will notice that the second image is aware of it’s context and will show a version more appropriate for it’s size.</p>
     
     <h2>A plain old image</h2>
@@ -37,14 +36,20 @@
     </small>
   </div>
   
-  
   <script>
     /*!
-    * domready (c) Dustin Diaz 2012 - License MIT
-    */
+     * domready (c) Dustin Diaz 2012 - License MIT
+     * https://github.com/ded/domready
+     */
     !function(a,b){typeof module!="undefined"?module.exports=b():typeof define=="function"&&typeof define.amd=="object"?define(b):this[a]=b()}("domready",function(a){function m(a){l=1;while(a=b.shift())a()}var b=[],c,d=!1,e=document,f=e.documentElement,g=f.doScroll,h="DOMContentLoaded",i="addEventListener",j="onreadystatechange",k="readyState",l=/^loade|c/.test(e[k]);return e[i]&&e[i](h,c=function(){e.removeEventListener(h,c,d),m()},d),g&&e.attachEvent(j,c=function(){/^c/.test(e[k])&&(e.detachEvent(j,c),m())}),a=g?function(c){self!=top?l?c():b.push(c):function(){try{f.doScroll("left")}catch(b){return setTimeout(function(){a(c)},50)}c()}()}:function(a){l?a():b.push(a)}})
   </script>
-  <script src="https://raw.github.com/mrinalwadhwa/adaptImages/master/adaptImages.min.js"></script>
+  <script>
+    /*!
+     * adaptImages (c) Mrinal Wadhwa 2012 - License MIT
+     * https://github.com/mrinalwadhwa/adaptImages
+     */
+    function adaptImages(e){var t=document,n="getElementsByTagName",r="getAttribute",i="setAttribute",s="length",o="data-",u="alt",f=t[n]("img"),l=["l","s"],c,h,p,d;e=o+e,a=t.body[r](o+"img-versions"),l=a?a.split(" "):l;for(p=f[s];p--;)c=f[p],(a=c[r](e))&&c[i]("src",a);for(f=t[n]("noscript"),p=f[s];p--;){c=f[p];if(a=c[r](e)){h=t.createElement("img"),h[i]("src",a);for(d=l[s];d--;)(a=c[r](o+l[d]))&&h[i](o+l[d],a);(a=c[r](o+u))&&h[i](u,a),c.parentNode.replaceChild(h,c)}}};
+  </script>
   <script>
     
     function adapt(){
