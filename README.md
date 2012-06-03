@@ -3,7 +3,7 @@ adaptImages.js
 
 `adaptImages.js` provides a simple function `adaptImages`, which you can use to support [responsive images](http://unstoppablerobotninja.com/entry/responsive-images/) on your web pages today.
 
-Here's an <a href="http://mrinalwadhwa.github.com/adaptImages">example</a>.
+Here's an [example](http://mrinalwadhwa.github.com/adaptImages).
 
 __Note__: This is a stop gap approach until we have a specification and a good [polyfill](http://remysharp.com/2010/10/08/what-is-a-polyfill/) for picture/pic element that the [W3C Responsive Images Community Group](http://www.w3.org/community/respimg/) is working on.
 
@@ -69,7 +69,7 @@ A more appropriate example could be:
 ````
 adaptImages(document.documentElement.clientWidth > 640 ? 'l' : 's')
 ````
-Or if you've defined `data-img-versions="large small large-2x small-2x"` on the document's body, you could use this to support hi pixel density devices, like Apple's Retina display:
+Or if you've defined `data-img-versions="large small large-2x small-2x"` on the document's body, you could use this to support high pixel density devices, like Apple's Retina display:
 ````
 var r = window.devicePixelRatio || 1;
 var w = document.documentElement.clientWidth;
