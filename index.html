@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Images using adaptImages.js</title>
+  <style>
+    img { width: 100%; }
+    #content {
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+  </style>
+</head>
+<body data-img-versions="l m s">
+  
+  <div id="content">
+    
+    <h1>Responsive Images using <a href="https://github.com/mrinalwadhwa/adaptImages">adaptImages.js</a></h1>
+    
+    <p>The two images below look the same when seen in a browser with width greater than 640 pixels, but if you resize your browser or if you’re viewing this page on a device with a lesser width, you will notice that the second image is aware of it’s context and will show a version more appropriate for it’s size.</p>
+    
+    <h2>A plain old image</h2>
+    <p>At small browser widths, when this image is simply scaled down, you can barely recognize Obama.</p>
+    <img src="obama.1024w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
+    
+    <h2>A responsive image that uses adaptImages.js</h2>
+    <p>At small browser widths, a cropped version, more suited for that size is shown.</p>
+    <noscript data-l="obama.1024w.jpg" data-m="obama.620w.jpg" data-s="obama.460w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011">
+      <img src="obama.460w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
+    </noscript>
+    
+    <small>
+      <strong>Credits</strong>
+      <p>I borrowed the idea of using this particular image <a href="http://blog.cloudfour.com/a-framework-for-discussing-responsive-images-solutions/">from Jason Grigsby</a>, his blog posts on responsive images are quite informative.</p>
+      <p><a href="http://www.flickr.com/photos/barackobamadotcom/5795228030/">Photo</a> of Obama licensed under Creative Commons. CC BY-NC-SA 2.0 from <a href="http://www.flickr.com/photos/barackobamadotcom/5795228030/">BarackObamaDotCom</a></p>
+    </small>
+  </div>
+  
+  <script src="https://raw.github.com/mrinalwadhwa/adaptImages/master/adaptImages.min.js"></script>
+  <script>
+    
+    function adapt(){
+      var w = document.documentElement.clientWidth;
+      adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's')
+    }
+    
+    window.onload = adapt;
+    window.onresize = adapt;
+    
+  </script>
+  
+</body>
+</html>
