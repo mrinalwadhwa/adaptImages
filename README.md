@@ -1,19 +1,53 @@
-Responsive Images
-==================
+adaptImages.js
+---------------
 
-This is an example of how you can support simple responsive images today.
+`adaptImages.js` provides a simple function `adaptImages`, which you can use to support responsive images on your web pages.
+
+Usage
+------
+
+### Markup
+
+````
+<noscript data-s="s.jpg" data-l="l.jpg" data-alt="Red and Blue">
+  <img src="s.jpg" alt="Red and Blue" />
+</noscript>
+````
+
+### Script
+
+````
+adaptImages('l')
+````
+
+
+
+Build and Test
+---------------
+
+  $ make
+
+  $ make tests
+
 
 References
-===========
+----------
 
-I first implemented this based on [Scott Jehl](http://scottjehl.com/)'s work with the [picture polyfill](http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/), but I later learned that [Mairead Buchan](http://www.headlondon.com/who-we-are#mairead-buchan) had done [something similar](http://www.headlondon.com/our-thoughts/technology/posts/creating-responsive-images-using-the-noscript-tag) as well.
+- [Picture Polyfill][]
+
+
+[1]: http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/
+
+[2]: http://www.headlondon.com/our-thoughts/technology/posts/creating-responsive-images-using-the-noscript-tag
 
 
 
 LICENSE
-========
+-------
 
-Copyright (c) 2012 Mrinal Wadhwa
+MIT License
+
+Copyright &copy; 2012 Mrinal Wadhwa
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
