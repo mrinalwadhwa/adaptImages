@@ -99,7 +99,7 @@ sink('adaptImages', function(test, ok, before, after){
     function(){
     
       var noscript = document.createElement('noscript');
-      document.body.setAttribute('data-img-sizes', 'l m s')
+      document.body.setAttribute('data-img-versions', 'l m s')
       noscript.setAttribute('data-l', large);
       noscript.setAttribute('data-m', medium);
       noscript.setAttribute('data-s', small);

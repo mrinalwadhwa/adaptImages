@@ -1,4 +1,4 @@
-function adaptImages(size){
+function adaptImages(version){
   var
     doc = document,
     getElementsByTagName = 'getElementsByTagName',
@@ -8,19 +8,19 @@ function adaptImages(size){
     data = 'data-',
     alt = 'alt',
     nodes = doc[getElementsByTagName]('img'),
-    sizes = ['l','s'],
+    versions = ['l','s'],
     node,
     img,
     i,
     j;
   
-  size = data + size;
-  a = doc.body[getAttribute](data + 'img-sizes');
-  sizes = a ? a.split(' ') : sizes;
+  version = data + version;
+  a = doc.body[getAttribute](data + 'img-versions');
+  versions = a ? a.split(' ') : versions;
   
   for(i = nodes[length]; i--;) {
     node = nodes[i];
-    if(a = node[getAttribute](size))
+    if(a = node[getAttribute](version))
       node[setAttribute]('src', a);    
   }
   
@@ -29,13 +29,13 @@ function adaptImages(size){
     i--;
   ) {
     node = nodes[i];
-    if(a = node[getAttribute](size)) {
+    if(a = node[getAttribute](version)) {
       img = doc.createElement('img');
       img[setAttribute]('src', a);
       
-      for(j = sizes[length]; j--;)
-        if(a = node[getAttribute](data + sizes[j]))
-          img[setAttribute](data + sizes[j], a);
+      for(j = versions[length]; j--;)
+        if(a = node[getAttribute](data + versions[j]))
+          img[setAttribute](data + versions[j], a);
       
       if(a = node[getAttribute](data + alt))
         img[setAttribute](alt, a);
