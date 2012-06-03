@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!-- this is important for getting correct width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test</title>
+  <style>img { width: 100%; } </style>
+</head>
+<body>
+<script src="../adaptImages.min.js"></script>
+<script>
+
+  window.onload = function(){
+
+    var
+      large = '../examples/images/l.jpg',
+      medium = '../examples/images/m.jpg',
+      small = '../examples/images/s.jpg',
+      alt = "alt txt";
+
+    for(var i=1000,noscript;i--;) {
+      noscript = document.createElement('noscript');
+      noscript.setAttribute('data-l', large);
+      noscript.setAttribute('data-m', medium);
+      noscript.setAttribute('data-s', small);
+      noscript.setAttribute('data-alt', alt);
+      noscript.innerHTML = '<img src="'+ small +'" alt="'+ alt +'" />';
+      document.body.appendChild(noscript);
+    }
+
+    window.setTimeout(function(){
+
+      var f = adaptImages, t = +new Date;
+      f('l');
+      t = +new Date - t;
+      console.log(t);
+
+    }, 10000);
+
+  }
+
+</script>
+</body>
+</html>
