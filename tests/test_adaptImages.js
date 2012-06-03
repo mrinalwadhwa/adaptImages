@@ -22,12 +22,11 @@ sink('adaptImages', function(test, ok, before, after){
   test(
     'On a page with one responsive noscript, ' +
     'when adaptImages was called for "l" size',
-    7,
+    6,
     function(){
     
       var noscript = document.createElement('noscript');
       noscript.setAttribute('data-l', large);
-      noscript.setAttribute('data-m', medium);
       noscript.setAttribute('data-s', small);
       noscript.setAttribute('data-alt', alt);
       noscript.innerHTML = '<img src="'+ small +'" alt="'+ alt +'" />';
@@ -50,8 +49,6 @@ sink('adaptImages', function(test, ok, before, after){
          'img alt was set to data-alt of noscript');
       ok(image.getAttribute('data-l') === large,
          'img data-l was set to data-l of noscript');
-      ok(image.getAttribute('data-m') === medium,
-         'img data-m was set to data-m of noscript');
       ok(image.getAttribute('data-s') === small,
          'img data-s was set to data-s of noscript');
    }
@@ -61,13 +58,12 @@ sink('adaptImages', function(test, ok, before, after){
   test(
     'On a page with one responsive img, '+
     'when adaptImages was called for "l" size',
-    8,
+    7,
     function(){
       
       // add a responsive image
       var img = document.createElement('img');
       img.setAttribute('data-l', large);
-      img.setAttribute('data-m', medium);
       img.setAttribute('data-s', small);
       img.setAttribute('alt', alt);
       img.setAttribute('src', small);
@@ -91,8 +87,6 @@ sink('adaptImages', function(test, ok, before, after){
          'img alt was not modified');
       ok(image.getAttribute('data-l') === large,
          'img data-l was not modified');
-      ok(image.getAttribute('data-m') === medium,
-         'img data-m was not modified');
       ok(image.getAttribute('data-s') === small,
          'img data-s was not modified');
    }
@@ -100,18 +94,19 @@ sink('adaptImages', function(test, ok, before, after){
   
   test(
     'data-img-sizes set to large & small, ' +
-    'when adaptImages was called for "large" size',
-    5,
+    'when adaptImages was called for "medium" size',
+    6,
     function(){
     
       var noscript = document.createElement('noscript');
-      document.body.setAttribute('data-img-sizes', 'large small')
-      noscript.setAttribute('data-large', large);
-      noscript.setAttribute('data-small', small);
+      document.body.setAttribute('data-img-sizes', 'l m s')
+      noscript.setAttribute('data-l', large);
+      noscript.setAttribute('data-m', medium);
+      noscript.setAttribute('data-s', small);
       noscript.innerHTML = '<img src="'+ small +'" alt="'+ alt +'" />';
       document.body.appendChild(noscript);
       
-      adaptImages('large');
+      adaptImages('m');
 
       var images = document.getElementsByTagName('img');
       var image = images[0];
@@ -122,13 +117,15 @@ sink('adaptImages', function(test, ok, before, after){
       ok(images.length === 1,
          'an img was added');
 
-      ok(image.getAttribute('src') === large,
-         'img src was set to data-large of noscript');
+      ok(image.getAttribute('src') === medium,
+         'img src was set to data-m of noscript');
 
-      ok(image.getAttribute('data-large') === large,
-         'img data-large was set to data-large of noscript');
-      ok(image.getAttribute('data-small') === small,
-         'img data-small was set to data-small of noscript');
+      ok(image.getAttribute('data-l') === large,
+         'img data-large was set to data-l of noscript');
+      ok(image.getAttribute('data-m') === medium,
+         'img data-m was set to data-m of noscript');
+      ok(image.getAttribute('data-s') === small,
+         'img data-s was set to data-s of noscript');
    }
   );
 

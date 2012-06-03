@@ -9,9 +9,8 @@
 </head>
 <body>
 
-<noscript data-l="l.jpg" data-s="s.jpg" data-m="m.jpg"
-  data-alt="Blue is large. Green is medium. Red is small">
-  <img src="s.jpg" alt="Blue is large. Green is medium. Red is small" />
+<noscript data-s="images/s.jpg" data-l="images/l.jpg" data-alt="Red and Blue">
+  <img src="images/s.jpg" alt="Red and Blue" />
 </noscript>
 
 <script src="../adaptImages.js"></script>
@@ -24,16 +23,13 @@
   // In my testing, it seems, document.documentElement.clientWidth can be
   // used reliably, atleast after onload
   window.onload = function(){
-    
-    var w = document.documentElement.clientWidth;
     // you could use whatever logic you wish to select size
     // could be based on screen size, connection speed, matchMedia etc.
-    adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's');
+    adaptImages(document.documentElement.clientWidth > 640 ? 'l' : 's');
   }
   
   window.onresize = function(){
-    var w = document.documentElement.clientWidth;
-    adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's');
+    adaptImages(document.documentElement.clientWidth > 640 ? 'l' : 's');
   } 
 
 </script>

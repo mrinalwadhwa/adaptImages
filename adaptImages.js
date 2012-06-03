@@ -8,7 +8,7 @@ function adaptImages(size){
     data = 'data-',
     alt = 'alt',
     nodes = doc[getElementsByTagName]('img'),
-    sizes = ['l','m','s'],
+    sizes = ['l','s'],
     node,
     img,
     i,
