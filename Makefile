@@ -1,13 +1,17 @@
-NAME=$(shell node -pe "JSON.parse(require('fs').readFileSync('./package.json')).name")
+NAME=$(shell node -pe "JSON.parse(require('fs').readFileSync('package.json')).name")
+
+JSHINT = node_modules/.bin/jshint
+UGLIFY = node_modules/.bin/uglifyjs
+
 
 all: clean node_modules $(NAME).js $(NAME).min.js tests
 
 $(NAME).js: node_modules
-	node_modules/.bin/jshint src/$(NAME).js
+	$(JSHINT) src/$(NAME).js
 	cp src/$(NAME).js $(NAME).js
 
 $(NAME).min.js: node_modules $(NAME).js
-	node_modules/.bin/uglifyjs src/$(NAME).js > $(NAME).min.js
+	$(UGLIFY) src/$(NAME).js > $(NAME).min.js
 
 tests:
 	npm test
