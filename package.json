@@ -15,7 +15,6 @@
   , "devDependencies": {
         "sink-test": "*"
       , "uglify-js": "*"
-      , "jshint": "*"
       , "jsdom": "*"
     }
 }

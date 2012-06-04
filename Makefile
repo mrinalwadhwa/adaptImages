@@ -7,7 +7,6 @@ UGLIFY = node_modules/.bin/uglifyjs
 all: clean node_modules $(NAME).js $(NAME).min.js tests
 
 $(NAME).js: node_modules
-	$(JSHINT) src/$(NAME).js
 	cp src/$(NAME).js $(NAME).js
 
 $(NAME).min.js: node_modules $(NAME).js

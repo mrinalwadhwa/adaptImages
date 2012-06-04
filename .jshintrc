@@ -1,6 +1,0 @@
-{
-  // If assignments inside if, for and while should be allowed. Usually
-  // conditions and loops are for comparison, not assignments.
-  "boss": true,
-  "indent": 2
-}
