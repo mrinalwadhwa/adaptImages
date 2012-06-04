@@ -1,46 +1,61 @@
 function adaptImages(version){
   var
+    // cached reference to document for better minification and performance
     doc = document,
+    
+    // some local variables to save bytes in minification
     getElementsByTagName = 'getElementsByTagName',
     getAttribute = 'getAttribute',
     setAttribute = 'setAttribute',
     length = 'length',
     data = 'data-',
     alt = 'alt',
-    nodes = doc[getElementsByTagName]('img'),
+    
+    // default set of versions we support
     versions = ['l','s'],
+    // if document body has 'data-img-versions', use that list instead
+    attr = doc.body[getAttribute](data + 'img-versions'),
+    // 'data-img-versions' should be a space separated list of versions
+    versions = attr ? attr.split(' ') : versions,
+    // save length for later use in loops
+    versionLen = versions[length],
+    
+    // if the argument recieved is 'l', attribute we'll look for is 'data-l'
+    version = data + version,
+    
+    // first set of nodes we'll loop throght are all images on this page
+    nodes = doc[getElementsByTagName]('img'),
+    // save length for later use in loops
+    nodesLen = nodes[length],
     node,
-    img,
-    i,
-    j;
+    img;
   
-  version = data + version;
-  a = doc.body[getAttribute](data + 'img-versions');
-  versions = a ? a.split(' ') : versions;
+  // loop though all img elements in this document
+  for(;nodesLen--, node = nodes[nodesLen];)
+    if(attr = node[getAttribute](version)) // if an img has version attribute
+      node[setAttribute]('src', attr); // set src to value of version attribute
   
-  for(i = nodes[length]; i--;) {
-    node = nodes[i];
-    if(a = node[getAttribute](version))
-      node[setAttribute]('src', a);    
-  }
-  
+  // loop though all noscript elements in this document
   for(
-    nodes = doc[getElementsByTagName]('noscript'), i = nodes[length];
-    i--;
-  ) {
-    node = nodes[i];
-    if(a = node[getAttribute](version)) {
+    nodes = doc[getElementsByTagName]('noscript'), nodesLen = nodes[length];
+    nodesLen--, node = nodes[nodesLen];
+  ) if(attr = node[getAttribute](version)) { 
+      // if this noscript has the version attribute
+      
+      // create a corresponding img elment that will replace this noscript
       img = doc.createElement('img');
-      img[setAttribute]('src', a);
+      img[setAttribute]('src', attr); // set src to value of version attribute
       
-      for(j = versions[length]; j--;)
-        if(a = node[getAttribute](data + versions[j]))
-          img[setAttribute](data + versions[j], a);
+      // copy all possible version attributes to the new img element
+      for(;versionLen--;)
+        if(attr = node[getAttribute](data + versions[versionLen]))
+          img[setAttribute](data + versions[versionLen], attr);
       
-      if(a = node[getAttribute](data + alt))
-        img[setAttribute](alt, a);
+      // if data-alt is present, copy it to alt of img
+      if(attr = node[getAttribute](data + alt))
+        img[setAttribute](alt, attr);
       
+      // replace noscript with img
       node.parentNode.replaceChild(img, node);
     }
-  }
 }
