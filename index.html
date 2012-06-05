@@ -12,7 +12,7 @@
     }
   </style>
 </head>
-<body data-img-versions="l m s">
+<body data-img-versions="l l2x m m2x s s2x">
   
   <div id="content">
     
@@ -21,12 +21,17 @@
     
     <h2>A plain old image</h2>
     <p>At small browser widths, when this image is simply scaled down, you can barely recognize Obama.</p>
-    <img src="obama.1024w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
+    <img src="obama_1024w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
     
     <h2>A responsive image that uses adaptImages.js</h2>
     <p>At small browser widths, a cropped version, more suited for that size is shown.</p>
-    <noscript data-l="obama.1024w.jpg" data-m="obama.620w.jpg" data-s="obama.460w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011">
-      <img src="obama.460w.jpg" alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
+    <noscript
+      data-l="obama_1024w.jpg" data-l2x="obama_1024w_2x.jpg"
+      data-m="obama_640w.jpg"  data-m2x="obama_640w_2x.jpg"
+      data-s="obama_480w.jpg"  data-s2x="obama_480w_2x.jpg"
+      alt="Barack Obama at Chrysler, Toledo, in June 2011">
+      <img src="obama_480w.jpg"
+        alt="Barack Obama at Chrysler, Toledo, in June 2011"/>
     </noscript>
     
     <small>
@@ -53,8 +58,10 @@
   <script>
     
     function adapt(){
-      var w = document.documentElement.clientWidth;
-      adaptImages(w > 640 ? 'l' : w > 480 ? 'm' : 's')
+      var r = window.devicePixelRatio || 1,
+          w = document.documentElement.clientWidth,
+          s = w > 640 ? 'l' : w > 480 ? 'm' : 's';
+      adaptImages(r > 1.5 ? s+'2x' : s)
     }
     
     domready(adapt);
