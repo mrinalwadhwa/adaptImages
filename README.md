@@ -7,12 +7,17 @@ Here's an [example](http://mrinalwadhwa.github.com/adaptImages).
 
 __Note__: This is a stop gap approach until we have a specification and a good [polyfill](http://remysharp.com/2010/10/08/what-is-a-polyfill/) for picture/pic element that the [W3C Responsive Images Community Group](http://www.w3.org/community/respimg/) is working on.
 
+## Credits
+
+Most of what I've done here is inspired from research already done by many other excellent developers, including [Scott Jehl](http://scottjehl.com/), [Jason Grigsby](http://blog.cloudfour.com/author/jason-grigsby/), [Mairead Buchan](http://www.headlondon.com/who-we-are#mairead-buchan), [Ethan Marcotte](http://ethanmarcotte.com/) and others. A big thank you, from me, to all of them.
 
 ## Pros and Cons
 
 Responsive images aren't currently supported by web browsers, although many smart people are [working towards that](http://www.w3.org/community/respimg/). 
 
 All available approaches, today, for adapting your pages to show the right size and resolution of images are hacks that compromise on one thing for another. It is important to understand what these compromises are before you pick a particular approach for your next project.
+
+Jason Grigsby has a couple of excellent posts \[[1](http://blog.cloudfour.com/responsive-imgs/)\]\[[2](http://blog.cloudfour.com/responsive-imgs-part-2/)\] discussing some of the things you should consider.
 
 Here are the pros and cons of the approach `adaptImages.js` uses:
 
@@ -30,6 +35,8 @@ Here are the pros and cons of the approach `adaptImages.js` uses:
 ### Cons
 
 - Doesn't give you fine grained control on how _each_ image is selected. Approaches that support `srcset` and media queries for each source are much better if you need that control.
+
+- As Jason Grigsby [points out](http://blog.cloudfour.com/responsive-imgs-part-2/) some browsers, that profess to support javascript, but have poor implementations e.g Blackberry 4.5 has javascript, but javascript cannot manipulate the DOM, these browsers will not get an image with this method.
 
 - The markup is a semantic mess.
 
