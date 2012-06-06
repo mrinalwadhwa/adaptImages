@@ -61,7 +61,7 @@
       var r = window.devicePixelRatio || 1,
           w = document.documentElement.clientWidth,
           s = w > 640 ? 'l' : w > 480 ? 'm' : 's';
-      adaptImages(r > 1.5 ? s+'2x' : s)
+      adaptImages(r > 1 ? s+'2x' : s)
     }
     
     domready(adapt);
