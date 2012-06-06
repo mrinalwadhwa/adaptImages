@@ -60,7 +60,7 @@ function adaptImages(version){
       // attribute above, multiple runs may lead to unexpected results
       // if a noscript tag that has one version attribute but doesn't
       // define all possible version attributes.
-      // This is acceptable for now, but will revisit this is it break a good
+      // This is acceptable for now, but will revisit this if it breaks a good
       // use case
       for(;versionLen--;)
         if(attr = node[getAttribute](data + versions[versionLen]))
