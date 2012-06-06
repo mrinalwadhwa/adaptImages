@@ -74,7 +74,7 @@ Or if you've defined `data-img-versions="large small large-2x small-2x"` on the 
 var r = window.devicePixelRatio || 1;
 var w = document.documentElement.clientWidth;
 var s = w > 640 ? 'large' : 'small';
-s = r == 2 ? s+'-2x' : s;
+s = r > 1 ? s+'-2x' : s;
 adaptImages(s)
 ````
 
