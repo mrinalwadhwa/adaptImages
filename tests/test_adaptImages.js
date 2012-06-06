@@ -24,7 +24,9 @@ sink('adaptImages', function(test, ok, before, after){
     'when adaptImages was called for "l" size',
     6,
     function(){
-    
+      
+      adaptImages.r = 0;
+      
       var noscript = document.createElement('noscript');
       noscript.setAttribute('data-l', large);
       noscript.setAttribute('data-s', small);
@@ -61,6 +63,8 @@ sink('adaptImages', function(test, ok, before, after){
     7,
     function(){
       
+      adaptImages.r = 0;
+      
       // add a responsive image
       var img = document.createElement('img');
       img.setAttribute('data-l', large);
@@ -69,6 +73,7 @@ sink('adaptImages', function(test, ok, before, after){
       img.setAttribute('src', small);
       document.body.appendChild(img);
       
+      adaptImages('l');
       // adapt images on the page
       adaptImages('l');
     
@@ -93,10 +98,12 @@ sink('adaptImages', function(test, ok, before, after){
   );
   
   test(
-    'data-img-sizes set to large & small, ' +
+    'data-img-versions set to large medium & small, ' +
     'when adaptImages was called for "medium" size',
     6,
     function(){
+    
+      adaptImages.r = 0;
     
       var noscript = document.createElement('noscript');
       document.body.setAttribute('data-img-versions', 'l m s')
