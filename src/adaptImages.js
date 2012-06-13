@@ -24,7 +24,7 @@ function adaptImages(version){
     version = data + version,
     
     // some variable declaration fo later use
-    nodes, nodesLen, node, img;
+    nodes, nLen, node, img;
   
   
   if(adaptImages.r){
@@ -34,9 +34,10 @@ function adaptImages(version){
     // attributes
 
     // loop though all img elements in this document
-    for(nodes = doc[getElementsByTagName]('img'), nodesLen = nodes[length]; nodesLen--, node = nodes[nodesLen];)
+    for(nodes = doc[getElementsByTagName]('img'), nLen = nodes[length]; nLen--;)
        // if an img has version attribute, set src to value of version attribute
-      if(attr = node[getAttribute](version)) node[setAttribute]('src', attr)
+      if(attr = (node = nodes[nLen])[getAttribute](version))
+        node[setAttribute]('src', attr)
     
   } else {
 
@@ -44,8 +45,8 @@ function adaptImages(version){
     // elements in this document and if they have our version attribute then
     // replace them with a corresponding img element
     
-    for(nodes = doc[getElementsByTagName]('noscript'), nodesLen = nodes[length]; nodesLen--, node = nodes[nodesLen];)
-      if(attr = node[getAttribute](version)) { 
+    for(nodes = doc[getElementsByTagName]('noscript'), nLen = nodes[length]; nLen--;)
+      if(attr = (node = nodes[nLen])[getAttribute](version)) { 
         // if this noscript has the version attribute
       
         // create a corresponding img element that will replace this noscript
